@@ -1,10 +1,15 @@
+/* eslint-disable prettier/prettier */
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import counterReducer from "../features/counter/counterSlice"
+import { api } from "../features/books/bookSlice"
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    [api.reducerPath]: api.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
 })
 
 export type AppDispatch = typeof store.dispatch

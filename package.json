@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./backend/dist/server.js",
-    "backend": "tsnd --respawn ./backend/src/server.ts",
-    "frontend": "cd frontend && npm start",
+    "backend": "npm run constart --prefix ./backend",
+    "frontend": "npm run start --prefix ./frontend",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
     "test": "echo \"Error: no test specified\" && exit 1",  
     "build": "concurrently \"cd frontend && npm run build\" \"cd backend && npx tsc\""
